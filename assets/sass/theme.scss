@@ -1,0 +1,9 @@
+@import "_var";
+
+body {
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+@import "_header";
+@import "_footer";

@@ -1,0 +1,24 @@
+@import "_var";
+
+footer {
+    border-top: 1px solid black;
+}
+
+.footer-menu {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    gap: 86px;
+
+    & a {
+        text-decoration: none;
+        color: inherit;
+        font-family: $main-font-1;
+        text-transform: uppercase;
+    }
+}
+
+// Désactiver le clic sur le lien "TOUS DROITS RÉSERVÉS" et le rendre en mention texte 
+#menu-item-36 {
+    pointer-events: none;
+}
