@@ -11,6 +11,8 @@ while ( have_posts() ) :
 	if ( comments_open() || get_comments_number() ) {
 		comments_template();
 	}
+	// Afficher le contenu de la page 
+	the_content();
 endwhile; // End of the loop.
 
 get_footer();

@@ -22,3 +22,9 @@
         text-transform: uppercase;
     }
 }
+
+.navigation {
+    & a:hover {
+        font-weight: 700;
+    }
+}

@@ -1,6 +1,7 @@
 body {
   max-width: 1440px;
   margin: 0 auto;
+  font-family: "Poppins", sans-serif;
 }
 
 .logo {
@@ -25,6 +26,10 @@ body {
   text-transform: uppercase;
 }
 
+.navigation a:hover {
+  font-weight: 700;
+}
+
 footer {
   border-top: 1px solid black;
 }
@@ -44,4 +49,89 @@ footer {
 
 #menu-item-36 {
   pointer-events: none;
+}
+
+/* Modal Content/Box */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: rgba(0, 0, 0, 0.8);
+  /* w/ opacity */
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 15% auto;
+  /* 15% from the top and centered */
+  border: 5px solid #000;
+  width: 45%;
+}
+
+.modal-img {
+  background-image: url("http://localhost/motaphoto/wp-content/themes/motaphoto/assets/images/contact-header.png");
+  background-position: center;
+  background-size: cover;
+  height: 110px;
+  margin-top: 18px;
+  margin-bottom: 45px;
+}
+
+.wpcf7 {
+  display: flex;
+  justify-content: center;
+}
+.wpcf7 .wpcf7-form-control {
+  border-radius: 8px;
+  border: 1px solid #B8BBC2;
+}
+.wpcf7 .wpcf7-text {
+  height: 40px;
+  margin-bottom: 24px;
+}
+.wpcf7 .wpcf7-textarea {
+  height: 210px;
+}
+
+input.wpcf7-form-control.wpcf7-submit {
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  border-radius: 2px;
+  padding: 8px 15px;
+  height: 50px;
+  font-family: "Poppins", sans-serif;
+  background-color: #D8D8D8;
+}
+
+.modal-fade-in {
+  animation: fadeIn 0.5s both ease-in-out;
+}
+
+.modal-fade-out {
+  animation: fadeOut 0.5s both ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }
