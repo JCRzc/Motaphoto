@@ -19,3 +19,26 @@ window.addEventListener('click', function (event) {
     }, 300); // Wait for the end of the transition (0.3s)
   }
 });
+
+
+
+// Hamburger menu 
+document.addEventListener("DOMContentLoaded", function () {
+  const menuToggle = document.querySelector(".menu-toggle");
+  const mobileLinks = document.querySelector(".mobile-links");
+  const firstLine = document.querySelector(".first-line");
+  const secondLine = document.querySelector(".second-line");
+  const thirdLine = document.querySelector(".third-line");
+  const navBar = document.querySelector(".nav-container");
+
+  menuToggle.addEventListener("click", function () {
+    mobileLinks.classList.toggle("show-mobile-links");
+    firstLine.classList.toggle("first-line-anim");
+    secondLine.classList.toggle("second-line-anim");
+    thirdLine.classList.toggle("third-line-anim");
+    navBar.classList.toggle("nav-container-toggle");
+  });
+});
+
+
+

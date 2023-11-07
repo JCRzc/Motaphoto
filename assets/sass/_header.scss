@@ -1,5 +1,10 @@
 @import "_var";
 
+header {
+    font-family: $main-font-2;
+    text-transform: uppercase;
+}
+
 .logo {
     width: 40%;
 }
@@ -18,8 +23,6 @@
     & a {
         text-decoration: none;
         color: inherit;
-        font-family: $main-font-1;
-        text-transform: uppercase;
     }
 }
 
@@ -27,4 +30,115 @@
     & a:hover {
         font-weight: 700;
     }
+}
+
+.mobile-content {
+    display: none;
+}
+
+.menu-mobile {
+    display: none;
+}
+
+@media screen and (max-width: 767.98px) {
+
+    .navigation {
+        display: none;
+    }
+
+    .mobile-content {
+        display: flex;
+
+        & .menu-toggle {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 40px;
+            height: 30px;
+            cursor: pointer;
+            background: transparent;
+            border: none;
+
+            & .line {
+                display: inline-block;
+                width: 80%;
+                height: 2px;
+                background-color: black;
+                transform-origin: 1px 0px !important;
+                transition: transform 0.8s, opacity 0.2s ease;
+
+                &:first-child {
+                    transform-origin: 0% 0% !important;
+                }
+
+                &:nth-last-child(2) {
+                    transform-origin: 0% 100% !important;
+                }
+            }
+        }
+    }
+
+    .nav-container-toggle {
+        animation: slideRightToLeft 0.5s ease-in-out;
+    }
+    
+    .nav-wrapper {
+        height: 72px;
+        
+        & .logo {
+            width: 60%;
+        }
+    }
+    
+    .show-mobile-links {
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        background-color: #E00000;
+        animation: slideRightToLeft 0.5s ease-in-out;
+        
+        & .menu-mobile {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 44px;
+            text-transform: uppercase;
+            list-style: none;
+            gap: 18px;
+            margin: 50% auto;
+            padding-left: 0px;
+            
+            & a {
+                font-family: $main-font-2;
+                text-decoration: none;
+                color: #fff;
+                font-weight: 400;
+            }
+        }
+    }
+    
+    // Transform the lines into crosses, making the middle line disappear (hamburger menu)
+    .first-line-anim {
+        transform: rotate(45deg) translateY(0px) translateX(6px);
+        opacity: 1;
+    }
+    
+    .second-line-anim {
+        transform: rotate(0deg) scale(0.2, 0.2);
+        opacity: 0;
+    }
+    
+    .third-line-anim {
+        transform: rotate(-45deg) translate(1px, 2px);
+    }
+    
+    @keyframes slideRightToLeft {
+        from {
+            transform: translateX(1000px);
+        }
+        to {
+            transform: translateX(0px);
+        }
+    }
+  
 }

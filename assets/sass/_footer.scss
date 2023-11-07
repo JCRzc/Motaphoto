@@ -1,6 +1,8 @@
 @import "_var";
 
 footer {
+    font-family: $main-font-2;
+    text-transform: uppercase;
     border-top: 1px solid black;
 }
 
@@ -13,12 +15,23 @@ footer {
     & a {
         text-decoration: none;
         color: inherit;
-        font-family: $main-font-1;
-        text-transform: uppercase;
     }
 }
 
 // Désactiver le clic sur le lien "TOUS DROITS RÉSERVÉS" et le rendre en mention texte 
 #menu-item-36 {
     pointer-events: none;
+}
+
+@media screen and (max-width: 767.98px) {
+
+    .footer-menu {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        list-style: none;
+        gap: 24px;
+    }
+
+
 }
