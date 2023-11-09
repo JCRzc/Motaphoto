@@ -5,10 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Motaphoto</title>
-    <!-- font space mono loading via api due to font size bug in local loading -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet">
     <?php wp_head(); ?>
 </head>
 
@@ -23,6 +19,8 @@
                     'theme_location' => 'header-menu',
                     'container' => false,
                     'menu_class' => 'nav-menu',
+                    'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s<li id="btn-desktop"><a href="http://localhost/motaphoto/contact/">Contact</a></li></ul>',
+
                 ])
                 ?>
             </div>
@@ -35,10 +33,13 @@
             </div>
         </nav>
         <div class="mobile-links">
-            <?php wp_nav_menu([
+            <?php
+            wp_nav_menu([
                 'theme_location' => 'header-menu',
                 'container' => false,
                 'menu_class' => 'menu-mobile',
+                'menu_id' => 'menu-mobile-id',
+                'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s<li id="btn-mobile"><a href="http://localhost/motaphoto/contact/">Contact</a></li></ul>',
             ])
             ?>
         </div>

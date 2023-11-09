@@ -140,5 +140,18 @@ header {
             transform: translateX(0px);
         }
     }
+
+    @keyframes slideLeftToRight {
+        from {
+          transform: translateX(0);
+        }
+        to {
+          transform: translateX(1000px);
+        }
+      }
+      
+      .modal-slideLeftToRight {
+        animation: slideLeftToRight 0.5s ease-in-out;
+      }
   
 }

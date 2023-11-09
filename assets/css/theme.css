@@ -1,9 +1,29 @@
+@font-face {
+  font-family: "Space Mono";
+  src: url("http://localhost/motaphoto/wp-content/themes/motaphoto/fonts/SpaceMono-Regular.ttf") format("truetype"), url("http://localhost/motaphoto/wp-content/themes/motaphoto/fonts/SpaceMono-Bold.ttf") format("truetype"), url("http://localhost/motaphoto/wp-content/themes/motaphoto/fonts/SpaceMono-BoldItalic.ttf") format("truetype"), url("http://localhost/motaphoto/wp-content/themes/motaphoto/fonts/SpaceMono-Italic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Poppins";
+  src: url("http://localhost/motaphoto/wp-content/themes/motaphoto/fonts/Poppins-Regular.ttf") format("truetype"), url("http://localhost/motaphoto/wp-content/themes/motaphoto/fonts/Poppins-Bold.ttf") format("truetype"), url("http://localhost/motaphoto/wp-content/themes/motaphoto/fonts/Poppins-BoldItalic.ttf") format("truetype"), url("http://localhost/motaphoto/wp-content/themes/motaphoto/fonts/Poppins-Black.ttf") format("truetype"), url("http://localhost/motaphoto/wp-content/themes/motaphoto/fonts/Poppins-BlackItalic.ttf") format("truetype"), url("http://localhost/motaphoto/wp-content/themes/motaphoto/fonts/Poppins-ExtraBold.ttf") format("truetype"), url("http://localhost/motaphoto/wp-content/themes/motaphoto/fonts/Poppins-ExtraBoldItalic.ttf") format("truetype"), url("http://localhost/motaphoto/wp-content/themes/motaphoto/fonts/Poppins-ExtraLight.ttf") format("truetype"), url("http://localhost/motaphoto/wp-content/themes/motaphoto/fonts/Poppins-ExtraLightItalic.ttf") format("truetype"), url("http://localhost/motaphoto/wp-content/themes/motaphoto/fonts/Poppins-Italic.ttf") format("truetype"), url("http://localhost/motaphoto/wp-content/themes/motaphoto/fonts/Poppins-Light.ttf") format("truetype"), url("http://localhost/motaphoto/wp-content/themes/motaphoto/fonts/Poppins-LightItalic.ttf") format("truetype"), url("http://localhost/motaphoto/wp-content/themes/motaphoto/fonts/Poppins-Medium.ttf") format("truetype"), url("http://localhost/motaphoto/wp-content/themes/motaphoto/fonts/Poppins-MediumItalic.ttf") format("truetype"), url("http://localhost/motaphoto/wp-content/themes/motaphoto/fonts/Poppins-SemiBold.ttf") format("truetype"), url("http://localhost/motaphoto/wp-content/themes/motaphoto/fonts/Poppins-SemiBoldItalic.ttf") format("truetype"), url("http://localhost/motaphoto/wp-content/themes/motaphoto/fonts/Poppins-Thin.ttf") format("truetype"), url("http://localhost/motaphoto/wp-content/themes/motaphoto/fonts/Poppins-ThinItalic.ttf") format("truetype");
+}
 body {
   max-width: 1440px;
   margin: 0 auto;
   font-family: "Poppins", sans-serif;
 }
 
+@font-face {
+  font-family: "Space Mono";
+  src: url("http://localhost/motaphoto/wp-content/themes/motaphoto/fonts/SpaceMono-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Space Mono";
+  src: url("http://localhost/motaphoto/wp-content/themes/motaphoto/fonts/SpaceMono-Regular.ttf") format("truetype"), url("http://localhost/motaphoto/wp-content/themes/motaphoto/fonts/SpaceMono-Bold.ttf") format("truetype"), url("http://localhost/motaphoto/wp-content/themes/motaphoto/fonts/SpaceMono-BoldItalic.ttf") format("truetype"), url("http://localhost/motaphoto/wp-content/themes/motaphoto/fonts/SpaceMono-Italic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Poppins";
+  src: url("http://localhost/motaphoto/wp-content/themes/motaphoto/fonts/Poppins-Regular.ttf") format("truetype"), url("http://localhost/motaphoto/wp-content/themes/motaphoto/fonts/Poppins-Bold.ttf") format("truetype"), url("http://localhost/motaphoto/wp-content/themes/motaphoto/fonts/Poppins-BoldItalic.ttf") format("truetype"), url("http://localhost/motaphoto/wp-content/themes/motaphoto/fonts/Poppins-Black.ttf") format("truetype"), url("http://localhost/motaphoto/wp-content/themes/motaphoto/fonts/Poppins-BlackItalic.ttf") format("truetype"), url("http://localhost/motaphoto/wp-content/themes/motaphoto/fonts/Poppins-ExtraBold.ttf") format("truetype"), url("http://localhost/motaphoto/wp-content/themes/motaphoto/fonts/Poppins-ExtraBoldItalic.ttf") format("truetype"), url("http://localhost/motaphoto/wp-content/themes/motaphoto/fonts/Poppins-ExtraLight.ttf") format("truetype"), url("http://localhost/motaphoto/wp-content/themes/motaphoto/fonts/Poppins-ExtraLightItalic.ttf") format("truetype"), url("http://localhost/motaphoto/wp-content/themes/motaphoto/fonts/Poppins-Italic.ttf") format("truetype"), url("http://localhost/motaphoto/wp-content/themes/motaphoto/fonts/Poppins-Light.ttf") format("truetype"), url("http://localhost/motaphoto/wp-content/themes/motaphoto/fonts/Poppins-LightItalic.ttf") format("truetype"), url("http://localhost/motaphoto/wp-content/themes/motaphoto/fonts/Poppins-Medium.ttf") format("truetype"), url("http://localhost/motaphoto/wp-content/themes/motaphoto/fonts/Poppins-MediumItalic.ttf") format("truetype"), url("http://localhost/motaphoto/wp-content/themes/motaphoto/fonts/Poppins-SemiBold.ttf") format("truetype"), url("http://localhost/motaphoto/wp-content/themes/motaphoto/fonts/Poppins-SemiBoldItalic.ttf") format("truetype"), url("http://localhost/motaphoto/wp-content/themes/motaphoto/fonts/Poppins-Thin.ttf") format("truetype"), url("http://localhost/motaphoto/wp-content/themes/motaphoto/fonts/Poppins-ThinItalic.ttf") format("truetype");
+}
 header {
   font-family: "Space Mono", monospace;
   text-transform: uppercase;
@@ -124,6 +144,25 @@ header {
       transform: translateX(0px);
     }
   }
+  @keyframes slideLeftToRight {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(1000px);
+    }
+  }
+  .modal-slideLeftToRight {
+    animation: slideLeftToRight 0.5s ease-in-out;
+  }
+}
+@font-face {
+  font-family: "Space Mono";
+  src: url("http://localhost/motaphoto/wp-content/themes/motaphoto/fonts/SpaceMono-Regular.ttf") format("truetype"), url("http://localhost/motaphoto/wp-content/themes/motaphoto/fonts/SpaceMono-Bold.ttf") format("truetype"), url("http://localhost/motaphoto/wp-content/themes/motaphoto/fonts/SpaceMono-BoldItalic.ttf") format("truetype"), url("http://localhost/motaphoto/wp-content/themes/motaphoto/fonts/SpaceMono-Italic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Poppins";
+  src: url("http://localhost/motaphoto/wp-content/themes/motaphoto/fonts/Poppins-Regular.ttf") format("truetype"), url("http://localhost/motaphoto/wp-content/themes/motaphoto/fonts/Poppins-Bold.ttf") format("truetype"), url("http://localhost/motaphoto/wp-content/themes/motaphoto/fonts/Poppins-BoldItalic.ttf") format("truetype"), url("http://localhost/motaphoto/wp-content/themes/motaphoto/fonts/Poppins-Black.ttf") format("truetype"), url("http://localhost/motaphoto/wp-content/themes/motaphoto/fonts/Poppins-BlackItalic.ttf") format("truetype"), url("http://localhost/motaphoto/wp-content/themes/motaphoto/fonts/Poppins-ExtraBold.ttf") format("truetype"), url("http://localhost/motaphoto/wp-content/themes/motaphoto/fonts/Poppins-ExtraBoldItalic.ttf") format("truetype"), url("http://localhost/motaphoto/wp-content/themes/motaphoto/fonts/Poppins-ExtraLight.ttf") format("truetype"), url("http://localhost/motaphoto/wp-content/themes/motaphoto/fonts/Poppins-ExtraLightItalic.ttf") format("truetype"), url("http://localhost/motaphoto/wp-content/themes/motaphoto/fonts/Poppins-Italic.ttf") format("truetype"), url("http://localhost/motaphoto/wp-content/themes/motaphoto/fonts/Poppins-Light.ttf") format("truetype"), url("http://localhost/motaphoto/wp-content/themes/motaphoto/fonts/Poppins-LightItalic.ttf") format("truetype"), url("http://localhost/motaphoto/wp-content/themes/motaphoto/fonts/Poppins-Medium.ttf") format("truetype"), url("http://localhost/motaphoto/wp-content/themes/motaphoto/fonts/Poppins-MediumItalic.ttf") format("truetype"), url("http://localhost/motaphoto/wp-content/themes/motaphoto/fonts/Poppins-SemiBold.ttf") format("truetype"), url("http://localhost/motaphoto/wp-content/themes/motaphoto/fonts/Poppins-SemiBoldItalic.ttf") format("truetype"), url("http://localhost/motaphoto/wp-content/themes/motaphoto/fonts/Poppins-Thin.ttf") format("truetype"), url("http://localhost/motaphoto/wp-content/themes/motaphoto/fonts/Poppins-ThinItalic.ttf") format("truetype");
 }
 footer {
   font-family: "Space Mono", monospace;
@@ -167,7 +206,7 @@ footer {
   height: 100%;
   overflow: auto;
   /* Enable scroll if needed */
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.9);
   /* w/ opacity */
 }
 
@@ -191,6 +230,7 @@ footer {
 .wpcf7 {
   display: flex;
   justify-content: center;
+  font-family: "Poppins", sans-serif;
 }
 .wpcf7 .wpcf7-form-control {
   border-radius: 8px;
@@ -211,7 +251,7 @@ input.wpcf7-form-control.wpcf7-submit {
   border-radius: 2px;
   padding: 8px 15px;
   height: 50px;
-  font-family: "Poppins", sans-serif;
+  font-family: "Space Mono", monospace;
   background-color: #D8D8D8;
 }
 
@@ -237,5 +277,39 @@ input.wpcf7-form-control.wpcf7-submit {
   }
   to {
     opacity: 0;
+  }
+}
+@media screen and (max-width: 767.98px) {
+  .modal {
+    animation: slideRightToLeft 0.5s ease-in-out;
+  }
+  .modal-content {
+    width: 70%;
+    margin: 0 auto;
+  }
+  .modal-img {
+    height: 55px;
+    margin-top: 18px;
+    margin-bottom: 14px;
+  }
+  .wpcf7 .wpcf7-text {
+    width: 190px;
+    margin-bottom: 14px;
+  }
+  .wpcf7 .wpcf7-textarea {
+    width: 190px;
+    height: 149px;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  form p {
+    margin: 0px;
+  }
+  input.wpcf7-form-control.wpcf7-submit {
+    margin-top: 19px;
+    width: 190px;
   }
 }
