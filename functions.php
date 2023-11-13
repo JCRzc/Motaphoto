@@ -5,6 +5,7 @@ function theme_enqueue_styles()
 {
     wp_enqueue_style('theme-style', get_template_directory_uri() . '/assets/css/theme.css');
     wp_enqueue_script('theme-script', get_stylesheet_directory_uri() . '/assets/js/script.js', array('jquery'), '1.0', true);
+    wp_enqueue_script('Ajax', get_stylesheet_directory_uri() . '/assets/js/load-more.js', array('jquery'), '1.0', true);
 }
 add_action('wp_enqueue_scripts', 'theme_enqueue_styles');
 
@@ -110,3 +111,36 @@ function add_class_next_link($html)
     return add_class_to_post_link($html, 'link-next-arrow');
 }
 add_filter('next_post_link', 'add_class_next_link');
+
+// Hook for load-more button (with Ajax)
+function load_more()
+{
+    $ajax_query = new WP_Query([
+        'post_type' => 'photo',
+        'posts_per_page' => 12,
+        'orderby' => 'date',
+        'order' => 'DESC',
+        'paged' => $_POST['paged'],
+    ]);
+
+    $max_pages = $ajax_query->max_num_pages;
+    $output = '';
+
+    if ($ajax_query->have_posts()) {
+        ob_start();
+        while ($ajax_query->have_posts()) {
+            $ajax_query->the_post();
+            get_template_part('templates_part/photos-list');
+        }
+        $output = ob_get_clean();
+    }
+    $result = [
+        'max' => $max_pages,
+        'html' => $output,
+    ];
+    wp_reset_postdata();
+    wp_send_json($result);
+    exit;
+}
+add_action('wp_ajax_load_more', 'load_more');
+add_action('wp_ajax_nopriv_load_more', 'load_more');
