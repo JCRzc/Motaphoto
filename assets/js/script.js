@@ -1,34 +1,3 @@
-// Get the modal 
-const modal = document.getElementById('myModal');
-// Get the button that opens the modal
-const btnMobile = document.getElementById("btn-mobile");
-
-const btnDesktop = document.getElementById("btn-desktop");
-
-
-// Displays the modal when the button is clicked and prevents default link redirection
-btnDesktop.addEventListener('click', function (e) {
-  e.preventDefault();
-  modal.style.display = "block";
-});
-
-btnMobile.addEventListener('click', function (e) {
-  e.preventDefault();
-  modal.style.display = "block";
-});
-// Disappears the modal when clicked outside the zone
-window.addEventListener('click', function (event) {
-  if (event.target === modal) {
-    modal.classList.add("modal-fade-out");
-
-    setTimeout(() => {
-      modal.style.display = "none"; // Hide modal after fade
-      modal.classList.remove('modal-fade-out'); // Reset class for next opening
-    }, 1000); // Wait for the end of the transition (0.3s)
-  }
-});
-
-
 // Hamburger menu 
 document.addEventListener("DOMContentLoaded", function () {
   const menuToggle = document.querySelector(".menu-toggle");
@@ -47,5 +16,53 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+// Function to display the modal
+function displayModal() {
+  modal.style.display = "block";
+  // Check whether refPhotoField is present on the page and whether it contains anything
+  if (refPhotoField && refPhotoField.innerText.trim() !== "") {
+    const photoRef = refPhotoField.innerText;
+    formRefPhotoField.value = photoRef;
+  }
+}
+
+// Function to hide the modal
+function hideModal() {
+  modal.classList.add("modal-fade-out");
+  
+  setTimeout(() => {
+    modal.style.display = "none";
+    modal.classList.remove('modal-fade-out');
+  }, 300);
+}
+
+// DOM elements
+const modal = document.getElementById('myModal');
+const btnMobile = document.getElementById("btn-mobile");
+const btnDesktop = document.getElementById("btn-desktop");
+const btnPost = document.getElementById("single-post-contact-button");
+const refPhotoField = document.getElementById("ref-photo");
+const formRefPhotoField = document.getElementById("form-ref-photo");
 
 
+// Adding EventListeners
+btnDesktop.addEventListener('click', function (e) {
+  e.preventDefault();
+  displayModal();
+});
+
+btnMobile.addEventListener('click', function (e) {
+  e.preventDefault();
+  displayModal();
+});
+
+window.addEventListener('click', function (event) {
+  if (event.target === modal) {
+    hideModal();
+  }
+});
+
+btnPost.addEventListener('click', function (e) {
+  e.preventDefault();
+  displayModal();
+});

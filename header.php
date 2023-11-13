@@ -12,7 +12,9 @@
     <header class="nav-container">
         <nav class="nav-wrapper">
             <div class="logo">
-                <img class="logo" src="http://localhost/motaphoto/wp-content/themes/motaphoto/assets/images/nathalie-mota-logo.svg" alt="Logo">
+                <?php if (function_exists('the_custom_logo')) {
+                    the_custom_logo();
+                } ?>
             </div>
             <div class="navigation">
                 <?php wp_nav_menu([

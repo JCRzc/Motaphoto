@@ -6,11 +6,8 @@ body {
     font-family: $main-font-1;
 }
 
-@font-face {
-    font-family: 'Space Mono';
-    src: url('http://localhost/motaphoto/wp-content/themes/motaphoto/fonts/SpaceMono-Regular.ttf') format('truetype')
-}
-
 @import "_header";
 @import "_footer";
 @import "_modal-contact";
+@import "_single-photo";
+@import "_home-page";

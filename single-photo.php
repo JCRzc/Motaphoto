@@ -1,41 +1,64 @@
-<?php
+<?php get_header(); ?>
 
-get_header();
+<?php if (have_posts()) : ?>
+	<section class="post-section-photo">
+		<div class="post-photo-content">
+			<div class="post-col-left">
+				<h2>
+					<?php the_title() ?>
+				</h2>
+				<div class="post-desc">
+					<div class="single-photo-desc">Référence :
+						<span id="ref-photo">
+							<?= get_field('reference'); ?>
+						</span>
+					</div>
+					<div class="single-photo-desc">Catégorie :
+						<?php taxo_get_the_terms('categorie'); ?>
+					</div>
+					<div class="single-photo-desc">Format :
+						<?php taxo_get_the_terms('format'); ?>
+					</div>
+					<div class="single-photo-desc">Type :
+						<?= get_field('type'); ?>
+					</div>
+					<div class="single-photo-desc">Année :
+						<?= get_the_date('Y'); ?> <!-- only to display the year  -->
+					</div>
+				</div>
+			</div>
+			<div class="post-col-right">
+				<?php the_post_thumbnail('large', ['style' => 'width: 100%; height: auto;']) ?>
+			</div>
+		</div>
+		<div class="post-content-contact">
+			<div class="post-col-left">
+				<p>Cette photo vous intéresse ?</p>
+				<button id="single-post-contact-button" type="button" class="post-contact-button">Contact</button>
+			</div>
+			<div class="post-col-right">
+				<!-- Display thumbnail with navigation arrows -->
+				<div class="thumbnail-container">
+					<?php
+					next_post_link('%link', '<img class="right-arrow" src="' . get_template_directory_uri() . '/assets/images/arrow_right.png" alt="flèche de navigation de droite">');
 
-/* Start the Loop */
-while ( have_posts() ) :
-	the_post();
+					if (get_next_post() != null) {
+						echo get_the_post_thumbnail(get_next_post(), 'thumbnail', ['style' => 'width: 80px; height: 70px; objectif-fit: cover;', 'class' => 'next-image']);
+					}
 
-	get_template_part( 'template-parts/content/content-single' );
+					previous_post_link('%link', '<img class="left-arrow" src="' . get_template_directory_uri() . '/assets/images/arrow_left.png" alt="flèche de navigation de gauche">');
 
-	if ( is_attachment() ) {
-		// Parent post navigation.
-		the_post_navigation(
-			array(
-				/* translators: %s: Parent post link. */
-				'prev_text' => sprintf( __( '<span class="meta-nav">Published in</span><span class="post-title">%s</span>', 'twentytwentyone' ), '%title' ),
-			)
-		);
-	}
-
-	// If comments are open or there is at least one comment, load up the comment template.
-	if ( comments_open() || get_comments_number() ) {
-		comments_template();
-	}
-
-	// Previous/next post navigation.
-	$twentytwentyone_next = is_rtl() ? twenty_twenty_one_get_icon_svg( 'ui', 'arrow_left' ) : twenty_twenty_one_get_icon_svg( 'ui', 'arrow_right' );
-	$twentytwentyone_prev = is_rtl() ? twenty_twenty_one_get_icon_svg( 'ui', 'arrow_right' ) : twenty_twenty_one_get_icon_svg( 'ui', 'arrow_left' );
-
-	$twentytwentyone_next_label     = esc_html__( 'Next post', 'twentytwentyone' );
-	$twentytwentyone_previous_label = esc_html__( 'Previous post', 'twentytwentyone' );
-
-	the_post_navigation(
-		array(
-			'next_text' => '<p class="meta-nav">' . $twentytwentyone_next_label . $twentytwentyone_next . '</p><p class="post-title">%title</p>',
-			'prev_text' => '<p class="meta-nav">' . $twentytwentyone_prev . $twentytwentyone_previous_label . '</p><p class="post-title">%title</p>',
-		)
-	);
-endwhile; // End of the loop.
-
-get_footer();
+					if (get_previous_post() != null) {
+						echo get_the_post_thumbnail(get_previous_post(), 'thumbnail', ['style' => 'width: 80px; height: 70px; objectif-fit: cover;', 'class' => 'previous-image']);
+					}
+					?>
+				</div>
+			</div>
+		</div>
+		</div>
+	</section>
+	<section class="photo-block">
+		<?php get_template_part('templates_part/photo_block'); ?>
+	</section>
+<?php endif; ?>
+<?php get_footer(); ?>
