@@ -1,11 +1,12 @@
 <?php
 
-// Load theme scripts, css and fonts
+// Load scripts, css and fonts
 function theme_enqueue_styles()
 {
     wp_enqueue_style('theme-style', get_template_directory_uri() . '/assets/css/theme.css');
     wp_enqueue_script('theme-script', get_stylesheet_directory_uri() . '/assets/js/script.js', array('jquery'), '1.0', true);
-    wp_enqueue_script('Ajax', get_stylesheet_directory_uri() . '/assets/js/load-more.js', array('jquery'), '1.0', true);
+    wp_enqueue_script('Ajax-load-more', get_stylesheet_directory_uri() . '/assets/js/load-more.js', array('jquery'), '1.0', true);
+    wp_enqueue_script('Ajax-filters-and-sort', get_stylesheet_directory_uri() . '/assets/js/filters-and-sort.js', array('jquery'), '1.0', true);
 }
 add_action('wp_enqueue_scripts', 'theme_enqueue_styles');
 
@@ -29,57 +30,6 @@ function my_function_admin_bar()
     return false;
 }
 add_filter('show_admin_bar', 'my_function_admin_bar');
-
-// fonction qui ajoute la taxonomie et le CPT.
-function motaphoto_init()
-{
-    register_taxonomy('categorie', '{custom_post_type}', [
-        'labels' => [
-            'name' => 'Catégorie',
-            'singular_name' => 'Catégorie',
-            'plural_name' => 'Catégories',
-            'search_items' => 'Rechercher des catégories',
-            'all_item' => 'Toutes les catégories',
-            'edit_item' => 'Editer la catégorie',
-            'update_item' => 'Mettre à jour la catégories',
-            'add_new_item' => 'Ajouter une nouvelle catégorie',
-            'new_item_name' => 'Ajouter une nouvelle catégorie',
-            'menu_name' => 'Catégorie',
-        ],
-        'show_in_rest' => true,
-        'hierarchical' => true,
-        'show_admin_column' => true
-    ]);
-    register_taxonomy('format', '{custom_post_type}', [
-        'labels' => [
-            'name' => 'Format',
-            'singular_name' => 'Format',
-            'plural_name' => 'Formats',
-            'search_items' => 'Rechercher des formats',
-            'all_item' => 'Toutes les formats',
-            'edit_item' => 'Editer le format',
-            'update_item' => 'Mettre à jour le format',
-            'add_new_item' => 'Ajouter un nouveau format',
-            'new_item_name' => 'Ajouter un nouveau format',
-            'menu_name' => 'Format',
-        ],
-        'show_in_rest' => true,
-        'hierarchical' => true,
-        'show_admin_column' => true
-    ]);
-    register_post_type('photo', [
-        'label' => 'Photo',
-        'public' => true,
-        'menu_position' => 3,
-        'menu_icon' => 'dashicons-camera',
-        'supports' => ['title', 'thumbnail', 'custom-fields'],
-        'taxonomies' => ['categorie', 'format'],
-        'has_archive' => true,
-    ]);
-}
-
-add_action('init', 'motaphoto_init');
-
 
 // Taxonomy finder function
 function taxo_get_the_terms($taxonomy)
@@ -144,3 +94,49 @@ function load_more()
 }
 add_action('wp_ajax_load_more', 'load_more');
 add_action('wp_ajax_nopriv_load_more', 'load_more');
+
+
+// Hook for filters and sort (with Ajax) 
+
+function filter_and_sort_photos()
+{
+    $taxonomy_query = array('relation' => 'AND');
+
+    $custom_taxonomies = ['categorie', 'format'];
+
+    foreach ($custom_taxonomies as $custom_taxonomy) {
+        if (isset($_POST[$custom_taxonomy]) && !empty($_POST[$custom_taxonomy])) {
+            $taxonomy_query[] = array(
+                'taxonomy' => $custom_taxonomy,
+                'field' => 'slug',
+                'terms' => $_POST[$custom_taxonomy],
+            );
+        }
+    }
+
+    $ajax_filters = new WP_Query([
+        'post_type'      => 'photo',
+        'posts_per_page' => 12,
+        'orderby'        => 'date',
+        'order'          => $_POST['date'],
+        'tax_query'      => $taxonomy_query,
+    ]);
+
+    $response = '';
+
+    if ($ajax_filters->have_posts()) {
+        while ($ajax_filters->have_posts()) {
+            $ajax_filters->the_post();
+            $response .= get_template_part('templates_part/photos-list');
+        }
+    } else {
+        echo '<p class="no-photo">Aucun résultat</p>';
+    }
+
+    echo $response;
+    wp_reset_postdata();
+    exit;
+}
+
+add_action('wp_ajax_filter_and_sort_photos', 'filter_and_sort_photos');
+add_action('wp_ajax_nopriv_filter_and_sort_photos', 'filter_and_sort_photos');

@@ -1,0 +1,133 @@
+.filters-container {
+  display: flex;
+  justify-content: space-between;
+  height: 215px;
+  margin: 79px 10% -170px 10%;
+  overflow-x: auto;
+
+  & .selects-container {
+    display: flex;
+    width: calc(50% - 10px);
+    height: 43px;
+    gap: 36px;
+  }
+
+  & .container-date-select {
+    display: flex;
+    justify-content: flex-end;
+    width: calc(50% - 10px);
+    height: 43px;
+  }
+}
+
+.select {
+  padding: 0;
+  margin: 0;
+  width: calc(50% - 10px);
+
+  & li {
+    display: none;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    height: 100%;
+    padding: 0px 5%;
+    cursor: pointer;
+    font-family: $main-font-1;
+    font-size: 12px;
+    letter-spacing: 0.36px;
+
+    & img {
+      transition: all 200ms ease-out;
+    }
+  }
+
+  & li:first-child {
+    display: flex;
+    text-transform: uppercase;
+    border: 1px solid #b8bbc2;
+    border-radius: 8px;
+  }
+
+  & li:last-child {
+    border-radius: 0px 0px 8px 8px;
+  }
+
+  & li:first-child:focus {
+    border: 1px solid #215aff;
+  }
+
+
+  &.open li {
+    display: flex;
+
+  }
+
+  & .category-list,
+  .format-list,
+  .sort-by-list {
+    background-color: white;
+    animation: fadeIn 200ms both ease-out,
+      slideFromTop 100ms both ease-out;
+  }
+
+  & .category-list:hover,
+  .format-list:hover,
+  .sort-by-list:hover {
+    background-color: $tertiary-red;
+  }
+
+  & .category-list:active,
+  .format-list:active,
+  .sort-by-list:active {
+    background-color: $secondary-red;
+  }
+
+  & .category-li-focus,
+  .format-li-focus,
+  .sort-by-li-focus {
+    background-color: $primary-red;
+    color: white;
+  }
+
+  & li:first-child.category-active,
+  li:first-child.format-active,
+  li:first-child.sort-by-active {
+    border: 1px solid #215aff;
+    border-radius: 8px 8px 0 0;
+  }
+}
+
+.category-chevron-rotate,
+.format-chevron-rotate,
+.sort-by-chevron-rotate {
+  transform: rotate(180deg);
+}
+
+@keyframes slideFromTop {
+  from {
+    transform: translateY(-100px);
+  }
+
+  to {
+    transform: translateY(0px);
+  }
+}
+
+@media screen and (max-width: 767.98px) {
+  .filters-container {
+
+    & .container-date-select,
+    .selects-container {
+      width: auto;
+    }
+
+    & .container-date-select {
+      margin-left: 35px;
+    }
+
+    & ul {
+      width: 28vh;
+    }
+  }
+}

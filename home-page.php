@@ -30,8 +30,12 @@ Template Name: Home page
     ?>
 </section>
 
-<!-- Photos list  -->
+<!-- Filters and sort  -->
+<?php
+get_template_part('templates_part/filters-and-sort');
+?>
 
+<!-- Photos list  -->
 <?php
 $loop = new WP_Query(
     array(
