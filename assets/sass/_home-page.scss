@@ -11,11 +11,11 @@
             white-space: nowrap;
             font-family: $main-font-2;
             font-style: italic;
-            font-weight: 700;
+            font-weight: 100;
             font-size: 96px;
             text-transform: uppercase;
             color: transparent;
-            -webkit-text-stroke: 0.1px white;
+            -webkit-text-stroke: 1px white;
 
         }
     }
@@ -53,6 +53,13 @@
         border-radius: 2px;
         background: #D8D8D8;
         box-shadow: 0px 2px 1px 0px rgba(0, 0, 0, 0.02);
+        transition: background-color 300ms, color 300ms;
+    }
+
+    & .load-more-button:hover {
+        background-color: black;
+        color: white;
+        animation: fadeIn 300ms ease-out;
     }
 }
 
@@ -64,7 +71,9 @@
         .hero {
 
             & .hero-title {
+                display: block;
                 font-size: 28px;
+                font-weight: 700;
                 top: 30%;
                 -webkit-text-stroke-width: 0.1px;
             }

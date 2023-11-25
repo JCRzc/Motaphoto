@@ -78,6 +78,7 @@ const fetchFilteredPhotos = (selectedCategory, selectedFormat, selectedSortBy) =
         },
         success: response => {
             jQuery("#photo-list").append(response);
+            Lightbox.init();
         },
         error: error => {
             console.log(error.statusText);

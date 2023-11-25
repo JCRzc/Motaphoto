@@ -26,8 +26,10 @@ $related_photos_query = new WP_Query($related_photos_query_args);
         <div class="related-photo-container">
             <?php
             the_post_thumbnail('large', array(
-                'style' => 'width: 100%; height: 100%; object-fit: cover;',
+                'class' => 'post-photo-block',
+                'style' => 'height: 100%; max-height: 52vh; width: 100%; object-fit:cover;'
             ));
+            get_template_part('templates_part/overlay');
             ?>
         </div>
     <?php endwhile; ?>

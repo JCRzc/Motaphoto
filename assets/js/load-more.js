@@ -12,6 +12,8 @@ jQuery("#load-more-button").on("click", function () {
         success: ({ max, html }) => {
             jQuery("#load-more-button").toggle(currentPage < max);
             jQuery(".photo-list").append(html);
+            Lightbox.init();
         },
     });
 });
+

@@ -50,6 +50,10 @@ header {
   font-weight: 700;
 }
 
+footer a:hover {
+  font-weight: 700;
+}
+
 .mobile-content {
   display: none;
 }
@@ -104,6 +108,7 @@ header {
     height: 100vh;
     background-color: #E00000;
     animation: slideRightToLeft 0.5s ease-in-out;
+    z-index: 20;
   }
   .show-mobile-links .menu-mobile {
     display: flex;
@@ -279,6 +284,7 @@ input.wpcf7-form-control.wpcf7-submit {
 @media screen and (max-width: 767.98px) {
   .modal {
     animation: slideRightToLeft 0.5s ease-in-out;
+    z-index: 25;
   }
   .modal-content {
     width: 70%;
@@ -431,7 +437,6 @@ input.wpcf7-form-control.wpcf7-submit {
 }
 .photo-block .related-photo {
   display: flex;
-  height: 50vh;
   margin-top: 52px;
   margin-bottom: 53px;
   gap: 20px;
@@ -454,6 +459,15 @@ input.wpcf7-form-control.wpcf7-submit {
   padding: 8px 15px;
   background: #D8D8D8;
   box-shadow: 0px 2px 1px 0px rgba(0, 0, 0, 0.02);
+}
+.photo-block .div-post-contact-button button:hover {
+  background-color: black;
+  color: white;
+  animation: fadeIn 300ms ease-out;
+}
+
+.related-photo-container {
+  height: 52vh;
 }
 
 @media screen and (max-width: 767.98px) {
@@ -504,7 +518,6 @@ input.wpcf7-form-control.wpcf7-submit {
   }
   .photo-block .related-photo .related-photo-container {
     width: 100%;
-    height: 85vw;
   }
   .photo-block .div-post-contact-button button {
     display: none;
@@ -521,11 +534,11 @@ input.wpcf7-form-control.wpcf7-submit {
   white-space: nowrap;
   font-family: "Space Mono", monospace;
   font-style: italic;
-  font-weight: 700;
+  font-weight: 100;
   font-size: 96px;
   text-transform: uppercase;
   color: transparent;
-  -webkit-text-stroke: 0.1px white;
+  -webkit-text-stroke: 1px white;
 }
 
 .photo-list {
@@ -559,6 +572,12 @@ input.wpcf7-form-control.wpcf7-submit {
   border-radius: 2px;
   background: #D8D8D8;
   box-shadow: 0px 2px 1px 0px rgba(0, 0, 0, 0.02);
+  transition: background-color 300ms, color 300ms;
+}
+.load-more .load-more-button:hover {
+  background-color: black;
+  color: white;
+  animation: fadeIn 300ms ease-out;
 }
 
 @media screen and (max-width: 767.98px) {
@@ -566,7 +585,9 @@ input.wpcf7-form-control.wpcf7-submit {
     height: 50vh !important;
   }
   .hero-section .hero .hero-title {
+    display: block;
     font-size: 28px;
+    font-weight: 700;
     top: 30%;
     -webkit-text-stroke-width: 0.1px;
   }
@@ -601,6 +622,7 @@ input.wpcf7-form-control.wpcf7-submit {
   padding: 0;
   margin: 0;
   width: calc(50% - 10px);
+  z-index: 5;
 }
 .select li {
   display: none;
@@ -685,5 +707,195 @@ input.wpcf7-form-control.wpcf7-submit {
   }
   .filters-container ul {
     width: 28vh;
+  }
+}
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 10;
+  overflow: auto;
+  animation: lightboxIn 0.5s;
+  transition: opacity 0.3s;
+}
+.lightbox .lightbox__next,
+.lightbox .lightbox__prev {
+  border: none;
+  background: url(http://localhost/motaphoto/wp-content/themes/motaphoto/assets/images/move-left.svg) center center/48px 48px no-repeat;
+  width: 48px;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  margin-top: -24px;
+  z-index: 11;
+  transform: rotate(180deg);
+}
+.lightbox .lightbox__next {
+  right: 20%;
+}
+.lightbox .lightbox__prev {
+  right: auto;
+  left: 20%;
+  transform: rotate(0deg);
+}
+.lightbox .lightbox__close {
+  width: 30px;
+  height: 30px;
+  border: none;
+  background: url('data:image/svg+xml;utf8,<svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3.64 2.27L7.5 6.13L11.34 2.29C11.4248 2.19972 11.527 2.12749 11.6404 2.07766C11.7538 2.02783 11.8761 2.00141 12 2C12.2652 2 12.5196 2.10536 12.7071 2.29289C12.8946 2.48043 13 2.73478 13 3C13.0023 3.1226 12.9796 3.24439 12.9332 3.35788C12.8867 3.47138 12.8176 3.57419 12.73 3.66L8.84 7.5L12.73 11.39C12.8948 11.5512 12.9915 11.7696 13 12C13 12.2652 12.8946 12.5196 12.7071 12.7071C12.5196 12.8946 12.2652 13 12 13C11.8726 13.0053 11.7454 12.984 11.6266 12.9375C11.5078 12.8911 11.4 12.8204 11.31 12.73L7.5 8.87L3.65 12.72C3.56551 12.8073 3.46456 12.8769 3.353 12.925C3.24144 12.9731 3.12146 12.9986 3 13C2.73478 13 2.48043 12.8946 2.29289 12.7071C2.10536 12.5196 2 12.2652 2 12C1.99767 11.8774 2.02042 11.7556 2.06684 11.6421C2.11327 11.5286 2.18241 11.4258 2.27 11.34L6.16 7.5L2.27 3.61C2.10518 3.44876 2.00854 3.23041 2 3C2 2.73478 2.10536 2.48043 2.29289 2.29289C2.48043 2.10536 2.73478 2 3 2C3.24 2.003 3.47 2.1 3.64 2.27Z" fill="white"/></svg>') center center/100% 100% no-repeat transparent;
+  position: fixed;
+  top: 20px;
+  right: 25%;
+  z-index: 12;
+}
+.lightbox button {
+  opacity: 0.5;
+  cursor: pointer;
+  transition: opacity 0.3s;
+  text-indent: -3000px;
+}
+.lightbox button:hover {
+  opacity: 1;
+}
+.lightbox .lightbox__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 50px;
+  margin-right: 50px;
+  min-height: 100vh;
+}
+.lightbox .lightbox__container img {
+  max-height: 70vh;
+  max-width: 38vw;
+  height: auto;
+  animation: lightboxIn 0.5s;
+}
+.lightbox .lightbox__container .lightbox__loader {
+  width: 38px;
+  height: 38px;
+  opacity: 0.5;
+  background: url(http://localhost/motaphoto/wp-content/themes/motaphoto/assets/images/loader.svg) center center no-repeat;
+}
+
+.prev-text,
+.next-text {
+  position: fixed;
+  color: white;
+  top: 46.5%;
+  font-family: "Space Mono", monospace;
+  font-size: 14px;
+}
+
+.prev-text {
+  left: 25%;
+}
+
+.next-text {
+  right: 25%;
+}
+
+.lightbox-photo-infos {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: -135px;
+  color: white;
+}
+.lightbox-photo-infos .lightbox-photo-cat {
+  font-family: "Space Mono", monospace;
+}
+
+.lightbox.fadeOut {
+  opacity: 0;
+}
+
+@keyframes lighboxIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@media screen and (max-width: 767.98px) {
+  .lightbox .lightbox__prev,
+  .lightbox .lightbox__next {
+    display: none;
+  }
+  .lightbox .lightbox__close {
+    top: 10%;
+    right: 10%;
+  }
+  .lightbox .lightbox__container img {
+    max-width: 100%;
+  }
+  .prev-text,
+  .next-text {
+    display: none;
+  }
+}
+.overlay {
+  z-index: 1;
+  opacity: 0;
+  position: relative;
+  top: -505px;
+  background-color: rgba(0, 0, 0, 0.6);
+  width: 100%;
+  height: 100%;
+  transition: opacaity 500ms ease-out;
+}
+.overlay:hover {
+  opacity: 1;
+  animation: fadeIn 300ms ease-out;
+}
+.overlay:not(:hover) {
+  animation: fadeOut 300ms both ease-out;
+}
+.overlay .overlay-reference,
+.overlay .overlay-category {
+  text-transform: uppercase;
+  color: #fff;
+}
+.overlay .overlay-screen-container,
+.overlay .overlay-eye,
+.overlay .overlay-category,
+.overlay .overlay-reference {
+  position: absolute;
+}
+.overlay .overlay-eye {
+  top: 45%;
+  right: 45%;
+}
+.overlay .overlay-reference {
+  bottom: 2%;
+  left: 4%;
+}
+.overlay .overlay-category {
+  bottom: 2%;
+  right: 4%;
+  font-family: "Space Mono", monospace;
+}
+
+.overlay-screen-container {
+  right: 4%;
+  top: 4%;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background-color: black;
+}
+.overlay-screen-container .overlay-screen {
+  position: relative;
+  top: 20%;
+  left: 25%;
+}
+
+@media screen and (max-width: 767.98px) {
+  .overlay {
+    top: -446px;
   }
 }

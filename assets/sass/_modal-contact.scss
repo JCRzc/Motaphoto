@@ -95,46 +95,47 @@ input.wpcf7-form-control.wpcf7-submit {
 
 @media screen and (max-width: 767.98px) {
 
-.modal {
-  animation: slideRightToLeft 0.5s ease-in-out;
-}  
+  .modal {
+    animation: slideRightToLeft 0.5s ease-in-out;
+    z-index: 25;
+  }
 
-.modal-content {
-  width: 70%;
-  margin: 0 auto;
-}
+  .modal-content {
+    width: 70%;
+    margin: 0 auto;
+  }
 
-.modal-img {
-  height: 55px;
-  margin-top: 18px;
-  margin-bottom: 14px;
-}
-
-.wpcf7 {
-  & .wpcf7-text {
-    width: 190px;
+  .modal-img {
+    height: 55px;
+    margin-top: 18px;
     margin-bottom: 14px;
   }
 
-  & .wpcf7-textarea {
+  .wpcf7 {
+    & .wpcf7-text {
+      width: 190px;
+      margin-bottom: 14px;
+    }
+
+    & .wpcf7-textarea {
+      width: 190px;
+      height: 149px;
+    }
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    & p {
+      margin: 0px;
+    }
+  }
+
+  input.wpcf7-form-control.wpcf7-submit {
+    margin-top: 19px;
     width: 190px;
-    height: 149px;
   }
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  & p {
-    margin: 0px;
-  }
-}
-
-input.wpcf7-form-control.wpcf7-submit {
-  margin-top: 19px;
-  width: 190px;
-}
 
 }

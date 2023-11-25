@@ -7,6 +7,15 @@ document.addEventListener("DOMContentLoaded", function () {
   const thirdLine = document.querySelector(".third-line");
   const navBar = document.querySelector(".nav-container");
 
+  // DOM elements
+  const modal = document.getElementById('myModal');
+  const btnMobile = document.getElementById("btn-mobile");
+  const btnDesktop = document.getElementById("btn-desktop");
+  const btnPost = document.getElementById("single-post-contact-button");
+  const refPhotoField = document.getElementById("ref-photo");
+  const formRefPhotoField = document.getElementById("form-ref-photo");
+
+
   menuToggle.addEventListener("click", function () {
     mobileLinks.classList.toggle("show-mobile-links");
     firstLine.classList.toggle("first-line-anim");
@@ -14,7 +23,6 @@ document.addEventListener("DOMContentLoaded", function () {
     thirdLine.classList.toggle("third-line-anim");
     navBar.classList.toggle("nav-container-toggle");
   });
-
 
   // Function to display the modal
   function displayModal() {
@@ -29,21 +37,11 @@ document.addEventListener("DOMContentLoaded", function () {
   // Function to hide the modal
   function hideModal() {
     modal.classList.add("modal-fade-out");
-
     setTimeout(() => {
       modal.style.display = "none";
       modal.classList.remove('modal-fade-out');
     }, 300);
   }
-
-  // DOM elements
-  const modal = document.getElementById('myModal');
-  const btnMobile = document.getElementById("btn-mobile");
-  const btnDesktop = document.getElementById("btn-desktop");
-  const btnPost = document.getElementById("single-post-contact-button");
-  const refPhotoField = document.getElementById("ref-photo");
-  const formRefPhotoField = document.getElementById("form-ref-photo");
-
 
   // Adding EventListeners
   btnDesktop.addEventListener('click', function (e) {
@@ -57,7 +55,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   window.addEventListener('click', function (event) {
-    if (event.target === modal) {
+    if (event.target.id == 'myModal') {
       hideModal();
     }
   });

@@ -1,0 +1,71 @@
+.overlay {
+    z-index: 1;
+    opacity: 0;
+    position: relative;
+    top: -505px;
+    background-color: rgba(0, 0, 0, .6);
+    width: 100%;
+    height: 100%;
+    transition: opacaity 500ms ease-out;
+
+    &:hover {
+        opacity: 1;
+        animation: fadeIn 300ms ease-out;
+    }
+
+    &:not(:hover) {
+        animation: fadeOut 300ms both ease-out;
+    }
+
+
+    & .overlay-reference,
+    .overlay-category {
+        text-transform: uppercase;
+        color: #fff;
+    }
+
+    & .overlay-screen-container,
+    .overlay-eye,
+    .overlay-category,
+    .overlay-reference {
+        position: absolute;
+    }
+
+
+    & .overlay-eye {
+        top: 45%;
+        right: 45%;
+    }
+
+    & .overlay-reference {
+        bottom: 2%;
+        left: 4%;
+    }
+
+    & .overlay-category {
+        bottom: 2%;
+        right: 4%;
+        font-family: $main-font-2;
+    }
+}
+
+.overlay-screen-container {
+    right: 4%;
+    top: 4%;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: black;
+
+    & .overlay-screen {
+        position: relative;
+        top: 20%;
+        left: 25%;
+    }
+}
+
+@media screen and (max-width: 767.98px) {
+    .overlay {
+        top: -446px;
+    }
+}
