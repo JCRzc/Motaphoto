@@ -1,11 +1,20 @@
 // Hamburger menu 
 document.addEventListener("DOMContentLoaded", function () {
+
+  function disableBodyScroll() {
+    document.body.classList.add("no-scroll");
+  }
+
+  function enableBodyScroll() {
+    document.body.classList.remove("no-scroll");
+  }
   const menuToggle = document.querySelector(".menu-toggle");
   const mobileLinks = document.querySelector(".mobile-links");
   const firstLine = document.querySelector(".first-line");
   const secondLine = document.querySelector(".second-line");
   const thirdLine = document.querySelector(".third-line");
   const navBar = document.querySelector(".nav-container");
+  const header = document.querySelector("header");
 
   // DOM elements
   const modal = document.getElementById('myModal');
@@ -17,11 +26,38 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   menuToggle.addEventListener("click", function () {
-    mobileLinks.classList.toggle("show-mobile-links");
-    firstLine.classList.toggle("first-line-anim");
-    secondLine.classList.toggle("second-line-anim");
-    thirdLine.classList.toggle("third-line-anim");
-    navBar.classList.toggle("nav-container-toggle");
+    if (mobileLinks.classList.contains("show-mobile-links")) {
+      // If the menu is already open, remove the classes and add closing animations
+      mobileLinks.classList.remove("show-mobile-links");
+      firstLine.classList.remove("first-line-anim");
+      secondLine.classList.remove("second-line-anim");
+      thirdLine.classList.remove("third-line-anim");
+      navBar.classList.remove("nav-container-toggle");
+      mobileLinks.classList.add("show-mobile-links-reverse");
+      header.classList.remove("fixed-header");
+      enableBodyScroll();
+
+      // Add an event listener for the end of the animation to remove the background color class
+      mobileLinks.addEventListener("animationend", function () {
+        mobileLinks.classList.remove("show-mobile-links-reverse");
+      }, { once: true });
+
+    } else {
+      // If the menu is closed, add the classes and add opening animations
+      mobileLinks.classList.add("show-mobile-links");
+      firstLine.classList.add("first-line-anim");
+      secondLine.classList.add("second-line-anim");
+      thirdLine.classList.add("third-line-anim");
+      mobileLinks.classList.remove("show-mobile-links-reverse");
+      navBar.classList.add("nav-container-toggle");
+      header.classList.add("fixed-header");
+      disableBodyScroll();
+
+      // Add an event listener for the end of the animation to remove the background color class
+      mobileLinks.addEventListener("animationend", function () {
+        mobileLinks.classList.remove("show-mobile-links-reverse");
+      }, { once: true });
+    }
   });
 
   // Function to display the modal
@@ -36,11 +72,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Function to hide the modal
   function hideModal() {
-    modal.classList.add("modal-fade-out");
-    setTimeout(() => {
-      modal.style.display = "none";
-      modal.classList.remove('modal-fade-out');
-    }, 300);
+    // mobile
+    if (window.innerWidth <= 767.98) {
+      modal.classList.add("modal-slide-left-to-right");
+      setTimeout(() => {
+        modal.style.display = "none";
+        modal.classList.remove("modal-slide-left-to-right");
+      }, 500);
+    } else {
+      //desktop
+      modal.classList.add("modal-fade-out");
+      setTimeout(() => {
+        modal.style.display = "none";
+        modal.classList.remove('modal-fade-out');
+      }, 300);
+    }
   }
 
   // Adding EventListeners

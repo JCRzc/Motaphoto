@@ -118,17 +118,29 @@
 @media screen and (max-width: 767.98px) {
   .filters-container {
 
+  margin: 35px 0 -175px 5%;
+  
+  // Hide scroll bar (Chrome, Safari)
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  // Firefox
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+
     & .container-date-select,
     .selects-container {
       width: auto;
+      gap: 10px;
     }
 
     & .container-date-select {
-      margin-left: 35px;
+      margin-left: 10px;
     }
 
     & ul {
-      width: 28vh;
+      width: 35vh;
     }
   }
 }

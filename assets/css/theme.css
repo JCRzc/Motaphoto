@@ -20,10 +20,21 @@ body {
   font-family: "Poppins";
   src: url("http://localhost/motaphoto/wp-content/themes/motaphoto/fonts/Poppins-Regular.ttf") format("truetype"), url("http://localhost/motaphoto/wp-content/themes/motaphoto/fonts/Poppins-Bold.ttf") format("truetype"), url("http://localhost/motaphoto/wp-content/themes/motaphoto/fonts/Poppins-BoldItalic.ttf") format("truetype"), url("http://localhost/motaphoto/wp-content/themes/motaphoto/fonts/Poppins-Black.ttf") format("truetype"), url("http://localhost/motaphoto/wp-content/themes/motaphoto/fonts/Poppins-BlackItalic.ttf") format("truetype"), url("http://localhost/motaphoto/wp-content/themes/motaphoto/fonts/Poppins-ExtraBold.ttf") format("truetype"), url("http://localhost/motaphoto/wp-content/themes/motaphoto/fonts/Poppins-ExtraBoldItalic.ttf") format("truetype"), url("http://localhost/motaphoto/wp-content/themes/motaphoto/fonts/Poppins-ExtraLight.ttf") format("truetype"), url("http://localhost/motaphoto/wp-content/themes/motaphoto/fonts/Poppins-ExtraLightItalic.ttf") format("truetype"), url("http://localhost/motaphoto/wp-content/themes/motaphoto/fonts/Poppins-Italic.ttf") format("truetype"), url("http://localhost/motaphoto/wp-content/themes/motaphoto/fonts/Poppins-Light.ttf") format("truetype"), url("http://localhost/motaphoto/wp-content/themes/motaphoto/fonts/Poppins-LightItalic.ttf") format("truetype"), url("http://localhost/motaphoto/wp-content/themes/motaphoto/fonts/Poppins-Medium.ttf") format("truetype"), url("http://localhost/motaphoto/wp-content/themes/motaphoto/fonts/Poppins-MediumItalic.ttf") format("truetype"), url("http://localhost/motaphoto/wp-content/themes/motaphoto/fonts/Poppins-SemiBold.ttf") format("truetype"), url("http://localhost/motaphoto/wp-content/themes/motaphoto/fonts/Poppins-SemiBoldItalic.ttf") format("truetype"), url("http://localhost/motaphoto/wp-content/themes/motaphoto/fonts/Poppins-Thin.ttf") format("truetype"), url("http://localhost/motaphoto/wp-content/themes/motaphoto/fonts/Poppins-ThinItalic.ttf") format("truetype");
 }
+body.no-scroll {
+  overflow: hidden;
+}
+
 header {
   font-family: "Space Mono", monospace;
   text-transform: uppercase;
-  box-shadow: 0px 4px 14px 10px rgba(0, 0, 0, 0.03);
+  box-shadow: 0px 4px 14px 10px rgba(252, 198, 198, 0.03);
+}
+
+header.fixed-header {
+  position: fixed;
+  background-color: white;
+  width: 100%;
+  z-index: 1000;
 }
 
 .logo {
@@ -93,9 +104,6 @@ footer a:hover {
   .mobile-content .menu-toggle .line:nth-last-child(2) {
     transform-origin: 0% 100% !important;
   }
-  .nav-container-toggle {
-    animation: slideRightToLeft 0.5s ease-in-out;
-  }
   .nav-wrapper {
     height: 72px;
   }
@@ -127,6 +135,14 @@ footer a:hover {
     color: #fff;
     font-weight: 400;
   }
+  .show-mobile-links-reverse {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background-color: #E00000;
+    animation: slideLeftToRight 0.5s ease-in-out;
+    z-index: 20;
+  }
   .first-line-anim {
     transform: rotate(45deg) translateY(0px) translateX(6px);
     opacity: 1;
@@ -143,7 +159,7 @@ footer a:hover {
       transform: translateX(1000px);
     }
     to {
-      transform: translateX(0px);
+      transform: translateX(0);
     }
   }
   @keyframes slideLeftToRight {
@@ -153,9 +169,6 @@ footer a:hover {
     to {
       transform: translateX(1000px);
     }
-  }
-  .modal-slideLeftToRight {
-    animation: slideLeftToRight 0.5s ease-in-out;
   }
 }
 @font-face {
@@ -194,6 +207,9 @@ footer {
     align-items: center;
     list-style: none;
     gap: 24px;
+    margin-top: 44px;
+    margin-bottom: 44px;
+    padding: 0;
   }
 }
 /* Modal Content/Box */
@@ -256,6 +272,11 @@ input.wpcf7-form-control.wpcf7-submit {
   font-family: "Space Mono", monospace;
   background-color: #D8D8D8;
 }
+input.wpcf7-form-control.wpcf7-submit:hover {
+  background-color: black;
+  color: white;
+  animation: fadeIn 300ms ease-out;
+}
 
 .modal-fade-in {
   animation: fadeIn 0.5s both ease-in-out;
@@ -284,7 +305,10 @@ input.wpcf7-form-control.wpcf7-submit {
 @media screen and (max-width: 767.98px) {
   .modal {
     animation: slideRightToLeft 0.5s ease-in-out;
-    z-index: 25;
+    z-index: 2000;
+  }
+  .modal-slide-left-to-right {
+    animation: slideLeftToRight 0.5s both ease-in-out;
   }
   .modal-content {
     width: 70%;
@@ -582,20 +606,25 @@ input.wpcf7-form-control.wpcf7-submit {
 
 @media screen and (max-width: 767.98px) {
   .hero-section {
-    height: 50vh !important;
+    height: 30vh !important;
   }
   .hero-section .hero .hero-title {
     display: block;
     font-size: 28px;
     font-weight: 700;
-    top: 30%;
+    top: 21%;
     -webkit-text-stroke-width: 0.1px;
   }
   .hero-section .hero img {
-    height: 50vh !important;
+    height: 30vh !important;
   }
   .photo-list .photo-wrapper {
     width: 100%;
+    height: 33vh;
+  }
+  .load-more {
+    margin-top: -20px;
+    margin-bottom: 22px;
   }
 }
 .filters-container {
@@ -698,15 +727,24 @@ input.wpcf7-form-control.wpcf7-submit {
   }
 }
 @media screen and (max-width: 767.98px) {
+  .filters-container {
+    margin: 35px 0 -175px 5%;
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
+  }
+  .filters-container::-webkit-scrollbar {
+    display: none;
+  }
   .filters-container .container-date-select,
   .filters-container .selects-container {
     width: auto;
+    gap: 10px;
   }
   .filters-container .container-date-select {
-    margin-left: 35px;
+    margin-left: 10px;
   }
   .filters-container ul {
-    width: 28vh;
+    width: 35vh;
   }
 }
 .lightbox {
@@ -896,6 +934,9 @@ input.wpcf7-form-control.wpcf7-submit {
 
 @media screen and (max-width: 767.98px) {
   .overlay {
-    top: -446px;
+    top: -286px;
+  }
+  .overlay-screen-container .overlay-screen {
+    left: 28%;
   }
 }

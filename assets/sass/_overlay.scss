@@ -66,6 +66,12 @@
 
 @media screen and (max-width: 767.98px) {
     .overlay {
-        top: -446px;
+        top: -286px;
+    }
+
+    .overlay-screen-container {
+        & .overlay-screen {
+            left: 28%;
+        }
     }
 }

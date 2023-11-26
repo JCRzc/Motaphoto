@@ -61,6 +61,12 @@ input.wpcf7-form-control.wpcf7-submit {
   height: 50px;
   font-family: $main-font-2;
   background-color: #D8D8D8;
+
+  &:hover {
+    background-color: black;
+    color: white;
+    animation: fadeIn 300ms ease-out;
+  }
 }
 
 .modal-fade-in {
@@ -97,7 +103,11 @@ input.wpcf7-form-control.wpcf7-submit {
 
   .modal {
     animation: slideRightToLeft 0.5s ease-in-out;
-    z-index: 25;
+    z-index: 2000;
+  }
+
+  .modal-slide-left-to-right {
+    animation: slideLeftToRight 0.5s both ease-in-out;
   }
 
   .modal-content {
