@@ -26,12 +26,20 @@
 
     & .lightbox__next {
         right: 20%;
+
+        &:hover {
+            width: 45px;
+        }
     }
 
     & .lightbox__prev {
         right: auto;
         left: 20%;
         transform: rotate(0deg);
+
+        &:hover {
+            width: 45px;
+        }
     }
 
     & .lightbox__close {
@@ -124,7 +132,7 @@
     }
 }
 
-@media screen and (max-width: 767.98px) {
+@media screen and (max-width: 999.98px) {
 
     .lightbox {
 
@@ -150,6 +158,24 @@
     .next-text {
         display: none;
     }
+}
 
+@media screen and (min-width: 1000px) and (max-width: 1199.98px) {
+    .lightbox {
+        & .lightbox__prev {
+            left: 15%;
+        }
 
+        & .lightbox__next {
+            right: 15%;
+        }
+    }
+
+    .prev-text {
+        left: 20%;
+    }
+
+    .next-text {
+        right: 20%;
+    }
 }

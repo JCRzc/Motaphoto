@@ -13,7 +13,7 @@ jQuery(".category-select").click(function () {
 
 jQuery(".category-list").click(function () {
     let selected_li = jQuery(this).html();
-    jQuery(".category-select li:first-child").html(selected_li);
+    jQuery(".category-select li:first-child").html(selected_li + ' <img class="category-chevron" src="http://localhost/motaphoto/wp-content/themes/motaphoto/assets/images/chevron-down.png">');
     jQuery(".category-list").removeClass("category-li-focus");
     jQuery(this).addClass("category-li-focus");
 });
@@ -33,7 +33,7 @@ jQuery(".format-select").click(function () {
 
 jQuery(".format-list").click(function () {
     let selected_li_format = jQuery(this).html();
-    jQuery(".format-select li:first-child").html(selected_li_format);
+    jQuery(".format-select li:first-child").html(selected_li_format + ' <img class="category-chevron" src="http://localhost/motaphoto/wp-content/themes/motaphoto/assets/images/chevron-down.png">');
     jQuery(".format-list").removeClass("format-li-focus");
     jQuery(this).addClass("format-li-focus");
 });
@@ -53,19 +53,24 @@ jQuery(".date-select").click(function () {
 
 jQuery(".sort-by-list").click(function () {
     let selected_li_date = jQuery(this).html();
-    jQuery(".date-select li:first-child").html(selected_li_date);
+    jQuery(".date-select li:first-child").html(selected_li_date + ' <img class="category-chevron" src="http://localhost/motaphoto/wp-content/themes/motaphoto/assets/images/chevron-down.png">');
     jQuery(".sort-by-list").removeClass("sort-by-li-focus");
     jQuery(this).addClass("sort-by-li-focus");
 });
 
 // Filter and sort by Script 
 
-const applyOptionSelection = (selectedCategory, selectedFormat, selectedSortBy) => {
+// Define variables to store selected filter values
+let selectedCategory = null;
+let selectedFormat = null;
+let selectedSortBy = "DESC";
+
+const applyOptionSelection = () => {
     document.getElementById("photo-list").innerHTML = "";
     fetchFilteredPhotos(selectedCategory, selectedFormat, selectedSortBy);
 };
 
-const fetchFilteredPhotos = (selectedCategory, selectedFormat, selectedSortBy) => {
+const fetchFilteredPhotos = () => {
     jQuery.ajax({
         type: "POST",
         url: "wp-admin/admin-ajax.php",
@@ -89,19 +94,22 @@ const fetchFilteredPhotos = (selectedCategory, selectedFormat, selectedSortBy) =
 const handleOptionClick = (optionClass, optionVariable) => {
     jQuery(optionClass).click(function () {
         const optionValue = jQuery(this).attr("data-value");
-        applyOptionSelection(
-            optionVariable === "selectedCategory" ? optionValue : selectedCategory,
-            optionVariable === "selectedFormat" ? optionValue : selectedFormat,
-            optionVariable === "selectedSortBy" ? optionValue : selectedSortBy
-        );
+
+        // Update the selected value based on the option variable
+        if (optionVariable === "selectedCategory") {
+            selectedCategory = optionValue;
+        } else if (optionVariable === "selectedFormat") {
+            selectedFormat = optionValue;
+        } else if (optionVariable === "selectedSortBy") {
+            selectedSortBy = optionValue;
+        }
+
+        // Apply the filter selection
+        applyOptionSelection();
     });
 };
 
-let selectedCategory = null;
-let selectedFormat = null;
-let selectedSortBy = "DESC";
-
+// Attach click handlers to filter options
 handleOptionClick(".category-list", "selectedCategory");
 handleOptionClick(".format-list", "selectedFormat");
 handleOptionClick(".sort-by-list", "selectedSortBy");
-

@@ -64,14 +64,26 @@
     }
 }
 
-@media screen and (max-width: 767.98px) {
+@media screen and (max-width: 479.97px) {
     .overlay {
-        top: -286px;
+        top: -287px;
     }
 
     .overlay-screen-container {
         & .overlay-screen {
             left: 28%;
         }
+    }
+}
+
+@media screen and (min-width: 480px) and (max-width: 767.98px) {
+    .overlay {
+        top: -494px;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 999.98px) {
+    .overlay {
+        top: -694px;
     }
 }
