@@ -37,17 +37,17 @@
   justify-content: center;
   font-family: $main-font-1;
 
-  & .wpcf7-form-control {
+  .wpcf7-form-control {
     border-radius: 8px;
     border: 1px solid #B8BBC2;
   }
 
-  & .wpcf7-text {
+  .wpcf7-text {
     height: 40px;
     margin-bottom: 24px;
   }
 
-  & .wpcf7-textarea {
+  .wpcf7-textarea {
     height: 210px;
   }
 }
@@ -122,12 +122,12 @@ input.wpcf7-form-control.wpcf7-submit {
   }
 
   .wpcf7 {
-    & .wpcf7-text {
+    .wpcf7-text {
       width: 190px;
       margin-bottom: 14px;
     }
 
-    & .wpcf7-textarea {
+    .wpcf7-textarea {
       width: 190px;
       height: 149px;
     }
@@ -138,7 +138,7 @@ input.wpcf7-form-control.wpcf7-submit {
     flex-direction: column;
     align-items: center;
 
-    & p {
+    p {
       margin: 0px;
     }
   }

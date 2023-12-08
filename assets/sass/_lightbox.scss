@@ -10,7 +10,7 @@
     animation: lightboxIn 0.5s;
     transition: opacity .3s;
 
-    & .lightbox__next,
+    .lightbox__next,
     .lightbox__prev {
         border: none;
         background: url(http://localhost/motaphoto/wp-content/themes/motaphoto/assets/images/move-left.svg) center center / 48px 48px no-repeat;
@@ -24,7 +24,7 @@
         transform: rotate(180deg);
     }
 
-    & .lightbox__next {
+    .lightbox__next {
         right: 20%;
 
         &:hover {
@@ -32,7 +32,7 @@
         }
     }
 
-    & .lightbox__prev {
+    .lightbox__prev {
         right: auto;
         left: 20%;
         transform: rotate(0deg);
@@ -42,7 +42,7 @@
         }
     }
 
-    & .lightbox__close {
+    .lightbox__close {
         width: 30px;
         height: 30px;
         border: none;
@@ -53,18 +53,18 @@
         z-index: 12;
     }
 
-    & button {
+    button {
         opacity: .5;
         cursor: pointer;
         transition: opacity 0.3s;
         text-indent: -3000px;
     }
 
-    & button:hover {
+    button:hover {
         opacity: 1;
     }
 
-    & .lightbox__container {
+    .lightbox__container {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -72,7 +72,7 @@
         margin-right: 50px;
         min-height: 100vh;
 
-        & img {
+        img {
             max-height: 70vh;
             max-width: 38vw;
             height: auto;
@@ -80,7 +80,7 @@
 
         }
 
-        & .lightbox__loader {
+        .lightbox__loader {
             width: 38px;
             height: 38px;
             opacity: 0.5;
@@ -112,7 +112,7 @@
     margin-top: -135px;
     color: white;
 
-    & .lightbox-photo-cat {
+    .lightbox-photo-cat {
         font-family: $main-font-2;
     }
 
@@ -136,18 +136,18 @@
 
     .lightbox {
 
-        & .lightbox__prev,
+        .lightbox__prev,
         .lightbox__next {
             display: none;
         }
 
-        & .lightbox__close {
+        .lightbox__close {
             top: 10%;
             right: 10%;
         }
 
-        & .lightbox__container {
-            & img {
+        .lightbox__container {
+            img {
                 max-width: 100%;
             }
         }
@@ -162,11 +162,11 @@
 
 @media screen and (min-width: 1000px) and (max-width: 1199.98px) {
     .lightbox {
-        & .lightbox__prev {
+        .lightbox__prev {
             left: 15%;
         }
 
-        & .lightbox__next {
+        .lightbox__next {
             right: 15%;
         }
     }

@@ -18,13 +18,13 @@
     }
 
 
-    & .overlay-reference,
+    .overlay-reference,
     .overlay-category {
         text-transform: uppercase;
         color: #fff;
     }
 
-    & .overlay-screen-container,
+    .overlay-screen-container,
     .overlay-eye,
     .overlay-category,
     .overlay-reference {
@@ -32,17 +32,17 @@
     }
 
 
-    & .overlay-eye {
+    .overlay-eye {
         top: 45%;
         right: 45%;
     }
 
-    & .overlay-reference {
+    .overlay-reference {
         bottom: 2%;
         left: 4%;
     }
 
-    & .overlay-category {
+    .overlay-category {
         bottom: 2%;
         right: 4%;
         font-family: $main-font-2;
@@ -57,7 +57,7 @@
     border-radius: 50%;
     background-color: black;
 
-    & .overlay-screen {
+    .overlay-screen {
         position: relative;
         top: 20%;
         left: 25%;
@@ -66,7 +66,7 @@
 
 @media screen and (max-width: 479.97px) {
     .overlay {
-        top: -287px;
+        top: -102.5%;
     }
 
     .overlay-screen-container {

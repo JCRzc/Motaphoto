@@ -3,10 +3,10 @@
   align-items: flex-end;
   padding: 2.5% 10% 0% 10%;
 
-  & .post-col-left {
+  .post-col-left {
     width: 50%;
 
-    & h2 {
+    h2 {
       font-family: $main-font-2;
       font-size: 66px;
       font-weight: 400;
@@ -17,7 +17,7 @@
       margin: 0px;
     }
 
-    & .post-desc {
+    .post-desc {
       font-family: $main-font-2;
       font-size: 14px;
       text-transform: uppercase;
@@ -30,11 +30,11 @@
     }
   }
 
-  & .post-col-right {
+  .post-col-right {
     width: 50%;
     display: flex;
 
-    & .wp-post-image {
+    .wp-post-image {
       width: 100%;
     }
   }
@@ -48,7 +48,7 @@
   margin-bottom: 77px;
   border-bottom: 1px solid black;
 
-  & .post-col-left {
+  .post-col-left {
     display: flex;
     align-items: center;
     width: 50%;
@@ -56,13 +56,13 @@
     margin-right: 3%;
     border-top: 1px solid black;
 
-    & p {
+    p {
       font-size: 14px;
       font-weight: 300;
       width: 50%;
     }
 
-    & button {
+    button {
       width: 50%;
       height: 5vh;
       cursor: pointer;
@@ -82,7 +82,7 @@
     }
   }
 
-  & .post-col-right {
+  .post-col-right {
     width: 50%;
     height: 100%;
   }
@@ -96,7 +96,7 @@
   width: 100%;
   height: 100%;
 
-  & .previous-image,
+  .previous-image,
   .next-image {
     position: absolute;
     top: 0;
@@ -106,13 +106,13 @@
     transition: all 200ms ease-out;
   }
 
-  & a {
+  a {
     position: absolute;
     padding-bottom: 10px;
     bottom: 0;
   }
 
-  & .link-previous-arrow {
+  .link-previous-arrow {
     right: 55px;
 
     &:hover+.previous-image {
@@ -121,7 +121,7 @@
     }
   }
 
-  & .link-next-arrow {
+  .link-next-arrow {
     &:hover+.next-image {
       z-index: 2;
       opacity: 1;
@@ -133,7 +133,7 @@
   padding: 0% 10%;
   margin-bottom: 64px;
 
-  & h3 {
+  h3 {
     display: flex;
     justify-content: center;
     font-family: $main-font-2;
@@ -143,22 +143,22 @@
     text-transform: uppercase;
   }
 
-  & .related-photo {
+  .related-photo {
     display: flex;
     margin-top: 52px;
     margin-bottom: 53px;
     gap: 20px;
 
-    & .related-photo-container {
+    .related-photo-container {
       width: 50%;
     }
   }
 
-  & .div-post-contact-button {
+  .div-post-contact-button {
     display: flex;
     justify-content: center;
 
-    & button {
+    button {
       width: 28.5vh;
       height: 5vh;
       cursor: pointer;
@@ -181,13 +181,13 @@
 }
 
 .related-photo-container {
-  height: 52vh;
+  height: 57.5vh;
 }
 
 @media screen and (max-width: 479.98px) {
   .photo-block {
-    & .related-photo {
-      & .related-photo-container {
+    .related-photo {
+      .related-photo-container {
         height: 33vh !important;
       }
     }
@@ -196,15 +196,15 @@
   .post-photo-content {
     flex-direction: column-reverse;
 
-    & .post-col-right {
+    .post-col-right {
       width: 100%;
     }
 
-    & .post-col-left {
+    .post-col-left {
       width: 100%;
       margin-top: 20px;
 
-      & h2 {
+      h2 {
         font-size: 46px;
         line-height: 48px;
       }
@@ -221,16 +221,16 @@
       display: none;
     }
 
-    & .post-col-left {
+    .post-col-left {
       width: 100%;
       flex-direction: column;
       padding: 0% 10%;
 
-      & p {
+      p {
         width: 100%;
       }
 
-      & button {
+      button {
         width: 100%;
         margin-bottom: 20px;
         height: 6vh;
@@ -241,19 +241,19 @@
   .photo-block {
     margin-bottom: 0;
 
-    & .related-photo {
+    .related-photo {
       margin-top: 25px;
       margin-bottom: 25px;
       flex-direction: column;
       height: 100%;
 
-      & .related-photo-container {
+      .related-photo-container {
         width: 100%;
         height: 51vh;
       }
     }
 
-    & .div-post-contact-button {
+    .div-post-contact-button {
       button {
         display: none;
       }
@@ -265,15 +265,15 @@
   .post-photo-content {
     flex-direction: column-reverse;
 
-    & .post-col-right {
+    .post-col-right {
       width: 100%;
     }
 
-    & .post-col-left {
+    .post-col-left {
       width: 100%;
       margin-top: 20px;
 
-      & h2 {
+      h2 {
         font-size: 46px;
         line-height: 48px;
       }
@@ -290,16 +290,16 @@
       display: none;
     }
 
-    & .post-col-left {
+    .post-col-left {
       width: 100%;
       flex-direction: column;
       padding: 0% 10%;
 
-      & p {
+      p {
         width: 100%;
       }
 
-      & button {
+      button {
         width: 100%;
         margin-bottom: 20px;
         height: 6vh;
@@ -310,19 +310,19 @@
   .photo-block {
     margin-bottom: 0;
 
-    & .related-photo {
+    .related-photo {
       margin-top: 25px;
       margin-bottom: 25px;
       flex-direction: column;
       height: 100%;
 
-      & .related-photo-container {
+      .related-photo-container {
         width: 100%;
-        height: 51vh;
+        height: 56.2vh;
       }
     }
 
-    & .div-post-contact-button {
+    .div-post-contact-button {
       button {
         display: none;
       }
@@ -334,15 +334,15 @@
   .post-photo-content {
     flex-direction: column-reverse;
 
-    & .post-col-right {
+    .post-col-right {
       width: 100%;
     }
 
-    & .post-col-left {
+    .post-col-left {
       width: 100%;
       margin-top: 20px;
 
-      & h2 {
+      h2 {
         font-size: 46px;
         line-height: 48px;
       }
@@ -359,16 +359,16 @@
       display: none;
     }
 
-    & .post-col-left {
+    .post-col-left {
       width: 100%;
       flex-direction: column;
       padding: 0% 10%;
 
-      & p {
+      p {
         width: 100%;
       }
 
-      & button {
+      button {
         width: 100%;
         margin-bottom: 20px;
         height: 6vh;
@@ -379,19 +379,19 @@
   .photo-block {
     margin-bottom: 0;
 
-    & .related-photo {
+    .related-photo {
       margin-top: 25px;
       margin-bottom: 25px;
       flex-direction: column;
       height: 100%;
 
-      & .related-photo-container {
+      .related-photo-container {
         width: 100%;
-        height: 72vh;
+        height: 79.2vh;
       }
     }
 
-    & .div-post-contact-button {
+    .div-post-contact-button {
       button {
         display: none;
       }

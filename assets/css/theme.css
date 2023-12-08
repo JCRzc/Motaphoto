@@ -498,7 +498,7 @@ input.wpcf7-form-control.wpcf7-submit:hover {
 }
 
 .related-photo-container {
-  height: 52vh;
+  height: 57.5vh;
 }
 
 @media screen and (max-width: 479.98px) {
@@ -606,7 +606,7 @@ input.wpcf7-form-control.wpcf7-submit:hover {
   }
   .photo-block .related-photo .related-photo-container {
     width: 100%;
-    height: 51vh;
+    height: 56.2vh;
   }
   .photo-block .div-post-contact-button button {
     display: none;
@@ -660,7 +660,7 @@ input.wpcf7-form-control.wpcf7-submit:hover {
   }
   .photo-block .related-photo .related-photo-container {
     width: 100%;
-    height: 72vh;
+    height: 79.2vh;
   }
   .photo-block .div-post-contact-button button {
     display: none;
@@ -693,7 +693,7 @@ input.wpcf7-form-control.wpcf7-submit:hover {
 }
 .photo-list .photo-wrapper {
   width: calc(50% - 10px);
-  height: 52vh;
+  height: 57.5vh;
 }
 
 .load-more {
@@ -761,7 +761,7 @@ input.wpcf7-form-control.wpcf7-submit:hover {
   }
   .photo-list .photo-wrapper {
     width: 100%;
-    height: 51vh;
+    height: 56.2vh;
   }
   .load-more {
     margin-top: -20px;
@@ -783,7 +783,7 @@ input.wpcf7-form-control.wpcf7-submit:hover {
   }
   .photo-list .photo-wrapper {
     width: 100%;
-    height: 72vh;
+    height: 79.2vh;
   }
   .load-more {
     margin-top: -20px;
@@ -1117,7 +1117,7 @@ input.wpcf7-form-control.wpcf7-submit:hover {
 
 @media screen and (max-width: 479.97px) {
   .overlay {
-    top: -287px;
+    top: -102.5%;
   }
   .overlay-screen-container .overlay-screen {
     left: 28%;
