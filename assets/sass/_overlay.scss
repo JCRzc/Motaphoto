@@ -2,7 +2,7 @@
     z-index: 1;
     opacity: 0;
     position: relative;
-    top: -505px;
+    top: -557px;
     background-color: rgba(0, 0, 0, .6);
     width: 100%;
     height: 100%;
@@ -78,12 +78,12 @@
 
 @media screen and (min-width: 480px) and (max-width: 767.98px) {
     .overlay {
-        top: -494px;
+        top: -543px;
     }
 }
 
 @media screen and (min-width: 768px) and (max-width: 999.98px) {
     .overlay {
-        top: -694px;
+        top: -763px;
     }
 }
