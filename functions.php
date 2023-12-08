@@ -4,8 +4,10 @@
 function theme_enqueue_styles()
 {
     wp_enqueue_style('theme-style', get_template_directory_uri() . '/assets/css/theme.css');
+    wp_enqueue_style('theme-style', get_template_directory_uri() . '/assets/css/lightbox.css');
     wp_enqueue_script('theme-script', get_stylesheet_directory_uri() . '/assets/js/script.js', array('jquery'), '1.0', true);
     wp_enqueue_script('lightbox', get_stylesheet_directory_uri() . '/assets/js/lightbox.js', array(), '1.0', true);
+    wp_enqueue_script('lightbox2', get_stylesheet_directory_uri() . '/assets/js/lightbox2.js', array('jquery'), '1.0', true);
     wp_enqueue_script('Ajax-load-more', get_stylesheet_directory_uri() . '/assets/js/load-more.js', array('jquery'), '1.0', true);
     wp_enqueue_script('Ajax-filters-and-sort', get_stylesheet_directory_uri() . '/assets/js/filters-and-sort.js', array('jquery'), '1.0', true);
 }

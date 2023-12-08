@@ -30,12 +30,54 @@
     }
   }
 
+  // .post-col-right {
+  //   width: 50%;
+  //   display: flex;
+
+  //   .wp-post-image {
+  //     width: 100%;
+  //   }
+
+  //   .view-fullscreen {
+  //     display: none;
+  //     position: absolute;
+  //     top: 35%;
+  //     right: 26%;
+  //     transform: translate(-50%, -50%);
+  //     opacity: 0;
+  //   }
+
+  //   &:hover {
+  //     .view-fullscreen {
+  //       display: block;
+  //       opacity: 1;
+  //       transition: 200ms;
+  //     }
+  //   }
+  // }
   .post-col-right {
     width: 50%;
     display: flex;
 
-    .wp-post-image {
-      width: 100%;
+    .image-link {
+      position: relative;
+      display: block;
+
+      &:hover {
+        .view-fullscreen {
+          opacity: 1;
+        }
+      }
+    }
+
+    .view-fullscreen {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      cursor: pointer;
+      transition: opacity 0.3s ease;
+      opacity: 0;
     }
   }
 }

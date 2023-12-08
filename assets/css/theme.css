@@ -372,8 +372,21 @@ input.wpcf7-form-control.wpcf7-submit:hover {
   width: 50%;
   display: flex;
 }
-.post-photo-content .post-col-right .wp-post-image {
-  width: 100%;
+.post-photo-content .post-col-right .image-link {
+  position: relative;
+  display: block;
+}
+.post-photo-content .post-col-right .image-link:hover .view-fullscreen {
+  opacity: 1;
+}
+.post-photo-content .post-col-right .view-fullscreen {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+  opacity: 0;
 }
 
 .post-content-contact {

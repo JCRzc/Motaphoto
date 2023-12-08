@@ -28,7 +28,15 @@
 				</div>
 			</div>
 			<div class="post-col-right">
-				<?php the_post_thumbnail('large', ['style' => 'width: 100%; height: auto;']) ?>
+				<a href="<?php echo wp_get_attachment_url(get_post_thumbnail_id()); ?>" data-lightbox="image" class="image-link">
+					<?php the_post_thumbnail('large', ['style' => 'width: 100%; height: auto;']) ?>
+					<svg class="view-fullscreen" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-expand">
+						<path d="m21 21-6-6m6 6v-4.8m0 4.8h-4.8" />
+						<path d="M3 16.2V21m0 0h4.8M3 21l6-6" />
+						<path d="M21 7.8V3m0 0h-4.8M21 3l-6 6" />
+						<path d="M3 7.8V3m0 0h4.8M3 3l6 6" />
+					</svg>
+				</a>
 			</div>
 		</div>
 		<div class="post-content-contact">
@@ -36,7 +44,7 @@
 				<p>Cette photo vous intéresse ?</p>
 				<button id="single-post-contact-button" type="button" class="post-contact-button">Contact</button>
 			</div>
-			<div class="post-col-right">
+			<div class="post-col-right ">
 				<!-- Display thumbnail with navigation arrows -->
 				<div class="thumbnail-container">
 					<?php
